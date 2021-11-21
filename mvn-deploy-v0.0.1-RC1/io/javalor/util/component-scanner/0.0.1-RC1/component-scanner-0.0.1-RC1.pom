@@ -78,7 +78,7 @@
                 <artifactId>site-maven-plugin</artifactId>
                 <version>0.12</version>
                 <configuration>
-                    <message>Maven artifacts for ${project.version}</message>
+                    <message>${github.commit.message}</message>
                     <noJekyll>true</noJekyll>
                     <outputDirectory>${project.build.directory}</outputDirectory>
                     <branch>refs/heads/${github.repository.branch.prefix}-v${project.version}</branch>
