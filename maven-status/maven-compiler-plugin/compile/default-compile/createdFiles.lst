@@ -1,0 +1,3 @@
+io\javalor\componentscanner\annotation\IncludedInComponentScan.class
+META-INF\services\io.javalor.componentscanner.annotation.IncludedInComponentScan
+io\javalor\componentscanner\annotation\IncludedInComponentScanAnnotationProcessor.class
