@@ -37,13 +37,12 @@ public class IncludedInComponentScanAnnotationProcessor extends AbstractProcesso
                     note("Scanning "+String.join(".",
                             element.getEnclosingElement().asType().toString(),element.getSimpleName().toString()));
                 })
-                .filter(element -> (element.getKind() == ElementKind.CLASS) )
-                .map(element -> element.getEnclosingElement().asType().toString()+"."+element.getSimpleName().toString())
+                .map(element -> element.getKind()+","+element.getEnclosingElement().asType().toString()+"."+element.getSimpleName().toString())
                 .collect(Collectors.toSet());
 
         try {
             FileObject resourceFile = processingEnv.getFiler()
-                    .createResource(StandardLocation.CLASS_OUTPUT,"","META-INF/io.javalor.util/component-scanner/component-list.lsv");
+                    .createResource(StandardLocation.CLASS_OUTPUT,"","META-INF/io.javalor/component-scanner/component-list.lsv");
             note("Adding Component: "+resourceFile.getName());
             Writer writer = resourceFile.openWriter();
             writer.write(String.join("\n",elements)+"\n");
